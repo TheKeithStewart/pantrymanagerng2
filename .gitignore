@@ -27,5 +27,5 @@ build/Release
 node_modules
 
 # Artifacts of compiling TS files
-/app/**/*.js
-/app/**/*.js.map
+/src/**/*.js
+/src/**/*.js.map
