@@ -11,11 +11,13 @@ beforeEachProviders
 } from 'angular2/testing';
 import {provide} from 'angular2/core';
 
-import {RecipesComponent} from './recipes.component';
+import {RecipeService} from './recipe.service';
 
-describe('Recipes Component', () => {
+describe('Recipe Service', () => {
 
-    beforeEachProviders(() => []);
+    beforeEachProviders(() => [
+        RecipeService
+    ]);
 
     xit('should...', () => {
 
