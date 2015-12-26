@@ -7,8 +7,8 @@
     "test": "karma start",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "lite": "lite-server --open src",
-    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" \"npm run start:test\" ",
+    "nodemon": "nodemon --watch src/server.js --ext js,jsx src/server.js",
+    "start": "concurrent \"npm run tsc:w\" \"npm run nodemon\" \"npm run start:test\" ",
     "start:test": "live-server --open=src/unit-tests.html"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "bootstrap": "^3.3.6",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.3",
+    "express": "^4.13.3",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
     "systemjs": "0.19.6",
@@ -37,8 +38,8 @@
     "karma": "^0.13.15",
     "karma-chrome-launcher": "^0.2.1",
     "karma-jasmine": "^0.3.6",
-    "lite-server": "^1.3.1",
     "live-server": "^0.9.0",
+    "nodemon": "^1.8.1",
     "typescript": "^1.7.3"
   }
 }
