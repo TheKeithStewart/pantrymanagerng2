@@ -1,28 +1,20 @@
 import {Component, OnInit} from 'angular2/core';
+import {RouteConfig, RouterOutlet} from 'angular2/router';
 
-import {RecipeCardComponent} from './recipeCard.component';
-import {RecipeService} from './recipe.service';
-
-import {IRecipe} from './recipe';
+import {RECIPE_ROUTES} from './route.config';
 
 @Component({
     selector: 'recipes',
     templateUrl: 'app/recipes/recipes.component.html',
-    directives: [RecipeCardComponent],
-    providers: [RecipeService]
+    directives: [RouterOutlet]
 })
+@RouteConfig(RECIPE_ROUTES)
 export class RecipesComponent implements OnInit {
-    public recipes: IRecipe[];
-    
-    constructor(private _recipeService: RecipeService) {
-        
+
+    constructor() {
+
     }
-    
-    ngOnInit() {
-        this.getRecipes();
-    }
-    
-    getRecipes() {
-        this._recipeService.getRecipes().then(recipes => this.recipes = recipes);
-    }
+
+    ngOnInit() { }
+
 }
