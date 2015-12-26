@@ -5,9 +5,9 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a [routerLink]="['/' + routes.home.as]" class="router-link">Home</a></li>
-                <li><a [routerLink]="['/' + routes.recipes.as]" class="router-link">Recipes</a></li>
-                <li><a [routerLink]="['/' + routes.pantry.as]" class="router-link">Pantry</a></li>
+                <li [class.active]="isRouteActive('home')"><a [routerLink]="['/' + routes.home.as]" class="router-link">Home</a></li>
+                <li [class.active]="isRouteActive('recipes')"><a [routerLink]="['/' + routes.recipes.as]" class="router-link">Recipes</a></li>
+                <li [class.active]="isRouteActive('pantry')"><a [routerLink]="['/' + routes.pantry.as]" class="router-link">Pantry</a></li>
             </ul>
         </div>
     </div>
