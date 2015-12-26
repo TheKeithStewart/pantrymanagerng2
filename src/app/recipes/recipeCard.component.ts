@@ -1,4 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
+import {Router} from 'angular2/router';
+
+import {IRecipe} from './recipe';
 
 @Component({
     selector: 'recipe-card',
@@ -7,8 +10,13 @@ import {Component, OnInit} from 'angular2/core';
 })
 
 export class RecipeCardComponent implements OnInit {
-
-    constructor() { }
+    public recipe: IRecipe;
+    
+    constructor(private _router: Router) { }
 
     ngOnInit() { }
+    
+    goToRecipeDetail() {
+        this._router.navigate(['RecipeDetail', { 'id': this.recipe.id }])
+    }
 }

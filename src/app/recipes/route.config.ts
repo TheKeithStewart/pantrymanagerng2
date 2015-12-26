@@ -1,4 +1,5 @@
 import {RecipeListComponent} from './recipeList.component';
+import {RecipeDetailComponent} from './recipe-detail.component';
 
 var Routes = {
     recipeList: {
@@ -6,6 +7,11 @@ var Routes = {
         as: 'RecipeList',
         component: RecipeListComponent,
         useAsDefault: true
+    },
+    recipeDetail: {
+        path: '/:id',
+        as: 'RecipeDetail',
+        component: RecipeDetailComponent
     }
 }
 
