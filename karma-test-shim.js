@@ -6,13 +6,13 @@ __karma__.loaded = function() {};
 
 System.config({
   packages: {
-    '/app': {
+    '/base/src/app': {
       defaultExtension: false,
       format: 'register',
       map: Object.keys(window.__karma__.files)
         .filter(onlyAppFiles)
         .reduce(function(pathsMapping, appPath) {
-          var moduleName = appPath.replace(/^\/app\//, './').replace(/\.js$/, '');
+          var moduleName = appPath.replace(/^\/base\/src\/app\//, './').replace(/\.js$/, '');
           pathsMapping[moduleName] = appPath + '?' + window.__karma__.files[appPath]
         return pathsMapping;
       }, {})
@@ -37,7 +37,7 @@ System.import('angular2/platform/browser').then(function(browser_adapter) {
 });
 
 function onlyAppFiles(filePath) {
-  return /^\/app\/(?!spec)([a-z0-9-_\/]+)\.js$/.test(filePath);
+  return /^\/base\/src\/app\/(?!spec)([a-z0-9-_\/]+)\.js$/.test(filePath);
 }
 
 function onlySpecFiles(path) {

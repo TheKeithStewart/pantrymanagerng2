@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <!--<base href="./src/" />-->
+
+    <title>Unit Tests</title>
+
+    <link rel="stylesheet" href="../../node_modules/jasmine-core/lib/jasmine-core/jasmine.css">
+
+    <script src="../../node_modules/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+    <script src="../../node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+    <script src="../../node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
+
+</head>
+
+<body>
+
+</body>
+
+<script src="../../node_modules/angular2/bundles/angular2-polyfills.js"></script>
+<script src="../../node_modules/systemjs/dist/system.src.js"></script>
+<script src="../../node_modules/rxjs/bundles/Rx.js"></script>
+<script src="../../node_modules/angular2/bundles/angular2.dev.js"></script>
+<script src="../../node_modules/angular2/bundles/testing.dev.js"></script>
+
+<script>
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 100;
+    System.config({
+        packages: {
+            'app': {defaultExtension: 'js'}
+        }
+    });
+    var imports = [
+        'app/common/ng2-duration.pipe.spec',
+        'app/home/home.component.spec',
+	    'app/recipes/recipe.service.spec',
+        'app/recipes/recipeCard.component.spec',
+        'app/recipes/recipes.component.spec'
+    ].map(function(spec) {
+        return System.import(spec);
+    });
+        Promise.all(imports)
+        .then(window.onload) // re-execute Jasmine's buildup
+        .catch(console.error.bind(console));
+
+</script>
+
+</html>
