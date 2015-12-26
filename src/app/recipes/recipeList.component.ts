@@ -5,6 +5,7 @@ import {RecipeCardComponent} from './recipeCard.component';
 import {RecipeService} from './recipe.service';
 
 @Component({
+    selector: 'recipe-list',
     templateUrl: 'app/recipes/recipeList.component.html',
     directives: [RecipeCardComponent]
 })
