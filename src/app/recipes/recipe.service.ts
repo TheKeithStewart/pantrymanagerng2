@@ -12,12 +12,10 @@ export class RecipeService {
     }
     
     addRecipe(recipe: IRecipe) {
-        console.log(recipe);
         if (!recipe.id) {
             recipe.id = this.generateID();
-            console.log('new id', recipe);
         }
-        console.log(recipe);
+
         this.recipes.push(recipe);
     }
     
