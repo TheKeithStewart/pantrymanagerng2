@@ -1,7 +1,7 @@
 import {IRecipeInstructions} from './recipeInstructions/recipeInstructions';
 
 export interface IRecipe {
-    id: number;
+    id?: number;
     title: string;
     notes?: string;
     sourceURL?: string;

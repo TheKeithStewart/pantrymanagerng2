@@ -1,5 +1,6 @@
 import {RecipeListComponent} from './recipeList.component';
 import {RecipeDetailComponent} from './recipe-detail.component';
+import {RecipeFormComponent} from './recipe-form.component';
 
 var Routes = {
     recipeList: {
@@ -12,6 +13,11 @@ var Routes = {
         path: '/:id',
         as: 'RecipeDetail',
         component: RecipeDetailComponent
+    },
+    recipeNew: {
+        path: '/new',
+        as: 'RecipeNew',
+        component: RecipeFormComponent
     }
 }
 

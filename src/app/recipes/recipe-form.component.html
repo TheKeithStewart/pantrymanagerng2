@@ -1,0 +1,14 @@
+<div class="container">
+    <h3>New Recipe:</h3>
+    <form (ngSubmit)="onSubmit()" #rf="ngForm">
+		<div class="form-group">
+			<label for="title">Recipe Title:</label>
+			<input type="text" class="form-control" required [(ngModel)]="recipe.title" ngControl="title" #name="ngForm">
+			<div [hidden]="name.valid" class="alert alert-danger">
+				Recipe Title is required
+			</div>
+		</div>
+        
+        <button type="submit" class="btn btn-default" [disabled]="!rf.form.valid">Submit</button>
+    </form>
+</div>
