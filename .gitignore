@@ -30,6 +30,3 @@ node_modules
 # Artifacts of compiling TS files
 /src/**/*.js
 /src/**/*.js.map
-
-# IDE files
-.vscode
