@@ -23,7 +23,6 @@ export class RecipeFormComponent implements OnInit {
     ngOnInit() { }
 
     onSubmit() {
-        console.log(this.recipe);
         this._recipeService.addRecipe(this.recipe);
         this._router.parent.navigate(['Recipes']);
     }
