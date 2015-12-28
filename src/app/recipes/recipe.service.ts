@@ -31,7 +31,8 @@ export class RecipeService {
     
     getNewEmptyRecipe(): IRecipe {
         return {
-            title: 'New Recipe'
+            title: 'New Recipe',
+            instructions: []
         }
     }
     
