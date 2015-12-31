@@ -18,6 +18,11 @@ var Routes = {
         path: '/new',
         as: 'RecipeNew',
         component: RecipeFormComponent
+    },
+    recipeForm: {
+        path: '/edit/:id',
+        as: 'RecipeForm',
+        component: RecipeFormComponent
     }
 }
 

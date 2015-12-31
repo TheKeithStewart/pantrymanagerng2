@@ -8,4 +8,16 @@
     <div>
         Source: {{ recipe.sourceURL }}
     </div>
+    <div *ngIf="recipe.instructions">
+        Instructions:
+        <ul>
+            <li *ngFor="#instruction of recipe.instructions">
+                <recipe-instructions-details [instruction]="instruction"></recipe-instructions-details>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <!--<span (click)="goToEdit()">Edit</span>-->
+        <a [routerLink]="['/Recipes/RecipeForm', { id: recipe.id }]">Edit</a>
+    </div>
 </div>

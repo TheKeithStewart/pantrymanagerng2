@@ -1,14 +1,16 @@
 import {Component, OnInit} from 'angular2/core';
-import {FORM_DIRECTIVES} from 'angular2/common';
+
+import {IRecipeInstructions} from './recipeInstructions';
 
 @Component({
     selector: 'recipe-instructions-details',
     templateUrl: 'app/recipes/recipeInstructions/recipe-instructions-details.component.html',
-    directives: [FORM_DIRECTIVES]
+    inputs: ['instruction']
 })
 
 export class RecipeInstructionsDetailsComponent implements OnInit {
-
+    instruction: IRecipeInstructions;
+    
     constructor() { }
 
     ngOnInit() { }
