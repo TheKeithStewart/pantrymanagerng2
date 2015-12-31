@@ -9,7 +9,7 @@
     "tsc:w": "tsc -w",
     "nodemon": "nodemon --watch src/server.js --ext js,jsx src/server.js",
     "start": "concurrent \"npm run tsc:w\" \"npm run nodemon\" \"npm run start:test\" ",
-    "start:test": "live-server --open=src/unit-tests.html"
+    "start:test": "live-server --open=src/client/unit-tests.html"
   },
   "repository": {
     "type": "git",
