@@ -10,7 +10,8 @@ import {RecipeService} from './recipe.service';
     directives: [RecipeCardComponent]
 })
 export class RecipeListComponent implements OnInit {
-    public recipes: IRecipe[];
+    recipes: IRecipe[];
+    sourceUrl: string;
 
     constructor(private _recipeService: RecipeService) { }
 
@@ -20,5 +21,10 @@ export class RecipeListComponent implements OnInit {
 
     getRecipes() {
         this._recipeService.getRecipes().then(recipes => this.recipes = recipes);
+    }
+       
+    scrapeRecipe() {
+        this._recipeService.scrapeRecipe(this.sourceUrl)
+            .subscribe(recipe => this._recipeService.addRecipe(recipe));
     }
 }

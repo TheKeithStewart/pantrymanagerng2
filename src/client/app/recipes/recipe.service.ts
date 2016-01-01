@@ -1,4 +1,5 @@
 import {Injectable} from 'angular2/core';
+import {Http} from 'angular2/http';
 
 import {IRecipe} from './recipe';
 import {RECIPES} from './mock-recipes';
@@ -7,7 +8,7 @@ import {RECIPES} from './mock-recipes';
 export class RecipeService {
     public recipes: IRecipe[];
     
-    constructor() {
+    constructor(private _http: Http) {
         this.recipes = RECIPES;
     }
     
@@ -42,6 +43,11 @@ export class RecipeService {
     
     getRecipe(id: number) {
         return Promise.resolve(this.recipes).then(recipes => recipes.filter(r => r.id === id)[0]);
+    }
+    
+    scrapeRecipe(sourceUrl: string) {
+        return this._http.get('scraperecipe?recipeUrl=' + sourceUrl)
+            .map(res => res.json())
     }
 
 }

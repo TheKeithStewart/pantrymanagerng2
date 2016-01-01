@@ -15,8 +15,8 @@
         </div>
 
         <div class="form-group">
-            <label for="sourceURL">Source:</label>
-            <input type="text" class="form-control" [(ngModel)]="recipe.sourceURL" ngControl="sourceURL">
+            <label for="sourceUrl">Source:</label>
+            <input type="text" class="form-control" [(ngModel)]="recipe.sourceUrl" ngControl="sourceUrl">
         </div>
 
         <div class="form-group">
@@ -24,7 +24,7 @@
             <recipe-instructions-form *ngFor="#instruction of recipe.instructions" [instruction]="instruction"></recipe-instructions-form>
             <button (click)="addInstruction()">Add</button>
         </div>
-
+        
         <button type="submit" class="btn btn-default" [disabled]="!rf.form.valid">Submit</button>
     </form>
 </div>

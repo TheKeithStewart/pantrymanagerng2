@@ -1,6 +1,14 @@
 <div class="container">
-	<h3>Recipes:</h3>
-	<div class="row">
-		<recipe-card *ngFor="#recipe of recipes" [recipe]="recipe"></recipe-card>
-	</div>
+    <h3>Recipes:</h3>
+
+    <form (ngSubmit)="scrapeRecipe()" class="form-inline">
+        <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="sourceUrl">
+        </div>
+        <button class="btn btn-default">scrape</button>
+    </form>
+    
+    <div class="row">
+        <recipe-card *ngFor="#recipe of recipes" [recipe]="recipe"></recipe-card>
+    </div>
 </div>

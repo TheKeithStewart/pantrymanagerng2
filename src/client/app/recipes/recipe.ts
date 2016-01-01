@@ -4,7 +4,7 @@ export interface IRecipe {
     id?: number;
     title: string;
     notes?: string;
-    sourceURL?: string;
+    sourceUrl?: string;
     instructions?: IRecipeInstructions[];
     prepTime?: any;
     cookTime?: any;
