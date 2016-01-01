@@ -1,3 +1,5 @@
+/// <reference path="./../typings/tsd" />
+
 var recipescraper = require('./server/recipescraper');
 
 var express = require('express');
