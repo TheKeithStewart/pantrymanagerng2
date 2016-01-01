@@ -6,9 +6,11 @@
   "scripts": {
     "test": "karma start",
     "tsc": "tsc",
-    "tsc:w": "tsc -w",
+    "tsc:clientDir": "tsc -w -p src/client",
+    "tsc:serverDir": "tsc -w -p src/server",
+    "tsc:server": "tsc -w src/server.ts",
     "nodemon": "nodemon --watch src/server.js --ext js,jsx src/server.js",
-    "start": "concurrent \"npm run tsc:w\" \"npm run nodemon\" \"npm run start:test\" ",
+    "start": "concurrent \"npm run tsc:clientDir\" \"npm run tsc:server\" \"npm run tsc:serverDir\" \"npm run nodemon\" \"npm run start:test\" ",
     "start:test": "live-server --open=src/client/unit-tests.html"
   },
   "repository": {
@@ -29,6 +31,7 @@
     "express": "^4.13.3",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
+    "scrapyard": "^0.1.0",
     "systemjs": "0.19.6",
     "zone.js": "0.5.10"
   },
