@@ -2,12 +2,15 @@
     <div>
         Title: {{ recipe.title }}
     </div>
+    
     <div>
         Notes: {{ recipe.notes }}
     </div>
+    
     <div>
         Source: {{ recipe.sourceUrl }}
     </div>
+    
     <div *ngIf="recipe.instructions">
         Instructions:
         <ul>
@@ -16,6 +19,16 @@
             </li>
         </ul>
     </div>
+    
+    <div *ngIf="recipe.ingredients">
+        Ingredients:
+        <ul>
+            <li *ngFor="#ingredient of recipe.ingredients">
+                <recipe-ingredient-details [ingredient]="ingredient"></recipe-ingredient-details>
+            </li>
+        </ul>
+    </div>
+    
     <div>
         <!--<span (click)="goToEdit()">Edit</span>-->
         <a [routerLink]="['/Recipes/RecipeForm', { id: recipe.id }]">Edit</a>

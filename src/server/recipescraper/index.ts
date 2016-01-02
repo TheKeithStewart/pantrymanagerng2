@@ -1,4 +1,10 @@
+/// <reference path="./../../../typings/tsd" />
+
 var scrapyard = require('scrapyard');
+
+interface IRecipeIngredient {
+    name: string;
+}
 
 export function getRecipe(recipeUrl: string, cb: Function) {
     var recipeScraper = new RecipeScraper();
@@ -12,7 +18,7 @@ export function getRecipe(recipeUrl: string, cb: Function) {
 class Recipe {
     sourceUrl: string;
     title: string;
-    ingredients: Array<string> = [];
+    ingredients: Array<IRecipeIngredient> = [];
     instructions: Array<string> = [];
 
     constructor(public recipePageDom: any, url: string) {
@@ -21,12 +27,14 @@ class Recipe {
         // this.getInstructions();
         this.getTitle();
     }
-    
+
     getIngredients() {
         if (this.recipePageDom('li.ingredient').length > 0) {
             var ingredientElements = this.recipePageDom('li.ingredient');
             for (var i = 0; i < ingredientElements.length; i++) {
-                this.ingredients.push(ingredientElements[i].children[0].data);
+                this.ingredients.push({
+                    name: ingredientElements[i].children[0].data
+                });
             }
         }
     }
@@ -60,6 +68,9 @@ class Recipe {
 }
 
 class RecipeScraper {
+    constructor() {
+
+    }
 
     getRecipe(recipeUrl: string, cb: Function) {
         var scraper = new scrapyard({
@@ -72,44 +83,8 @@ class RecipeScraper {
                 console.error(err);
             } else {
                 cb(recipeDom);
-                        
-                        
-                // console.log('## Ingredients')
-                // if ($('li.ingredient').length > 0) {
-                //       var ingredientElements = $('li.ingredient');
-                //       for (var i = 0; i < ingredientElements.length; i++) {
-                //             this.ingredients.push(ingredientElements[i].children[0].data);
-                //       }
-                // }
-
-                // console.log('', '## Procedures');
-                // if ($('h4').length > 0) {
-                //       var instructions = $('h4');
-                //       for (var i = 0; i < instructions.length; i++) {
-                //             if (instructions[i].children.length === 1 && instructions[i].next.next.name === 'p'
-                //             ) {
-                //                   // console.log("1. " + instructions[i].children[0].data, instructions[i].next.next.children[0].data);
-                //                   console.log("1. " + instructions[i].children[0].data);
-                //                   console.log(instructions[i].next);
-                //                   // var next = instructions[i].next.next;
-                //                   // while (next.next.next && next.next.next.name == 'p') {
-                //                   // 	next = next.next.next;
-                //                   // 	if (next.children.length === 1) {
-                //                   // 		console.log(next.children[0].data);
-                //                   // 	}
-                //                   // }
-                //             }
-                //       }
-                // }
             }
         });
     }
 
-    getIngredients() {
-
-
-
-
-
-    }
 }

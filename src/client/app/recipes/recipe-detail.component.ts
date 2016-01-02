@@ -4,11 +4,12 @@ import {RouteParams, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {IRecipe} from './recipe';
 import {RecipeService} from './recipe.service';
 import {RecipeInstructionsDetailsComponent} from './recipeInstructions/recipe-instructions-details.component';
+import {RecipeIngredientDetailsComponent} from './recipeIngredient/recipe-ingredient-details.component';
 
 @Component({
     selector: 'recipe-detail',
     templateUrl: 'app/recipes/recipe-detail.component.html',
-    directives: [RecipeInstructionsDetailsComponent, ROUTER_DIRECTIVES]
+    directives: [RecipeInstructionsDetailsComponent, RecipeIngredientDetailsComponent, ROUTER_DIRECTIVES]
 })
 export class RecipeDetailComponent implements OnInit {
     public recipe: IRecipe;

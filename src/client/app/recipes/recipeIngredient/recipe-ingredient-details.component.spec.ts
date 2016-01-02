@@ -11,9 +11,9 @@ beforeEachProviders
 } from 'angular2/testing';
 import {provide} from 'angular2/core';
 
-import {RecipeInstructionsDetailsComponent} from './recipe-instructions-details.component';
+import {RecipeIngredientDetailsComponent} from './recipe-ingredient-details.component';
 
-describe('Recipe Instructions Details Component', () => {
+describe('Recipe Ingredient Details Component', () => {
 
     beforeEachProviders(() => []);
 

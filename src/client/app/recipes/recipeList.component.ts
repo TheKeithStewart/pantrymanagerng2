@@ -25,6 +25,8 @@ export class RecipeListComponent implements OnInit {
        
     scrapeRecipe() {
         this._recipeService.scrapeRecipe(this.sourceUrl)
-            .subscribe(recipe => this._recipeService.addRecipe(recipe));
+            .subscribe(recipe => {
+                this._recipeService.addRecipe(recipe);
+            });
     }
 }
